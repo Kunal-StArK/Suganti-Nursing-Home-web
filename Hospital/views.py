@@ -13,7 +13,8 @@ def blogPage(request):
 def billingPage(request):
     return render(request,"billing.html")
 
-
+def medibillPage(request):
+    return render(request,"medibill.html")
 
 
 

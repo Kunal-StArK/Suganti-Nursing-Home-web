@@ -9,6 +9,7 @@
     <title>Suganti Nursing Home</title>
     <link rel="stylesheet" href="/static/style.css">
     <link rel="stylesheet" href="/static/billing.css">
+    <link rel="stylesheet" href="/static/mediCSS.css">
 </head>
 <body>
 
@@ -26,6 +27,7 @@
                 <a href="{% url 'blog' %}" class="nav-link {% if request.path == '/blog/' %} active {% endif %}">Blog</a>
                 <a href="{% url 'aboutform' %}" class="nav-link {% if request.path == '/aboutform/' %} active {% endif %}">Form</a>
                 <a href="{% url 'billing' %}" class="nav-link {% if request.path == '/billing/' %} active {% endif %}">Billing</a>
+                <a href="{% url 'medibill' %}" class="nav-link {% if request.path == '/medibill/' %} active {% endif %}">Medicine Bill</a>
             </nav>
             <div class="emergency-contact">
                 <span>Emergency Dial: <strong>108</strong></span>

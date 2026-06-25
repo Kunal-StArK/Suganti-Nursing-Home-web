@@ -25,4 +25,5 @@ urlpatterns = [
     path('blog/',views.blogPage, name='blog'),
     path('aboutform/',views.aboutcopyPage, name='aboutform'),
     path('billing/',views.billingPage, name='billing'),
+    path('medibill/',views.medibillPage, name='medibill'),
 ]

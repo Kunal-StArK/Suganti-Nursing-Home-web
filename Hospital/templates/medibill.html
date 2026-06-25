@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+    {% block content %}
+
+    <h2 class="section-title">🏥 Pharmacy Medicine Billing</h2>
+    
+    <div class="billing-container">
+        <div class="billing-form-box">
+            <h3>💊 Add Medicines</h3>
+            
+            <div class="form-group">
+                <label>Patient Full Name:</label>
+                <input type="text" id="medPatientName" placeholder="Enter patient name...">
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+
+            <form id="medicineEntryForm">
+                <div class="form-group">
+                    <label>Medicine Name:</label>
+                    <input type="text" id="medName" placeholder="e.g., Paracetamol 650mg" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group flex-1">
+                        <label>Price per Strip/Tab (₹):</label>
+                        <input type="number" id="medPrice" placeholder="0.00" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-group flex-1">
+                        <label>Quantity:</label>
+                        <input type="number" id="medQty" value="1" min="1" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-add">➕ Add to Bill</button>
+            </form>
+
+            <div class="form-group" style="margin-top: 25px;">
+                <label>Tax / GST (%):</label>
+                <input type="number" id="medTax" value="12" min="0" max="100">
+            </div>
+
+            <button type="button" class="btn-print" id="printMedBtn">Print Medicine Receipt</button>
+        </div>
+
+        <div class="invoice-preview" id="printSection">
+            <div class="invoice-header">
+                <h3>🏥 Suganti Nursing Home Pharmacy Invoice</h3>
+                <p>Main Market Road, Tajpur, Saran, Bihar, PIN-841209</p>
+                <p>Email: sugantihome@gmail.com</p>
+                <p><strong>Rx Bill No:</strong> <span id="medInvoiceNo">LC-RX-XXXXX</span></p>
+                <p><strong>Date:</strong> <span id="medDate">--/--/----</span></p>
+            </div>
+            <hr style="border: 1px dashed #333; margin: 15px 0;">
+            
+            <div class="invoice-details">
+                <p><strong>Patient Name:</strong> <span id="lblMedPatient">-------</span></p>
+            </div>
+
+            <table class="invoice-table">
+                <thead>
+                    <tr>
+                        <th style="text-align: left; width: 45%;">Medicine Description</th>
+                        <th style="text-align: center; width: 15%;">Price</th>
+                        <th style="text-align: center; width: 15%;">Qty</th>
+                        <th style="text-align: right; width: 20%;">Total</th>
+                        <th class="hide-on-print" style="text-align: center; width: 5%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="medicineTableBody">
+                    </tbody>
+            </table>
+
+            <div class="totals-section">
+                <div class="total-row-item">
+                    <span>Sub Total:</span>
+                    <span id="outSubTotal">₹0.00</span>
+                </div>
+                <div class="total-row-item">
+                    <span>GST/Tax Amount:</span>
+                    <span id="outTaxAmount">₹0.00</span>
+                </div>
+                <hr style="border: 0; border-top: 1px solid #ddd; margin: 5px 0;">
+                <div class="total-row-item grand-total-row">
+                    <strong>Grand Total:</strong>
+                    <strong id="outMedTotal">₹0.00</strong>
+                </div>
+            </div>
+
+            <div class="invoice-footer">
+                <p>Medicines once sold will not be taken back.</p>
+                <p>Thank you! Stay Healthy.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

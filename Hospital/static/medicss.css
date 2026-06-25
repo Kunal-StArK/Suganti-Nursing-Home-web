@@ -1,0 +1,227 @@
+/* ==========================================
+           1. CORE CSS STYLING
+           ========================================== */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f1f5f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #0f766e;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .billing-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .billing-form-box, .invoice-preview {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            flex: 1;
+            min-width: 340px;
+        }
+
+        .billing-form-box h3 {
+            color: #0f766e;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+
+        .flex-1 { flex: 1; }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .btn-add {
+            background-color: #0f766e;
+            color: white;
+            border: none;
+            padding: 12px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 5px;
+            font-size: 0.95rem;
+        }
+
+        .btn-add:hover { background-color: #0d9488; }
+
+        .btn-print {
+            background-color: #0284c7;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .btn-print:hover { background-color: #0369a1; }
+
+        .btn-delete {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 2px 6px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+
+        /* Receipt Sheet Design */
+        .invoice-preview {
+            border: 2px dashed #0f766e;
+            background-color: #fffdfa;
+        }
+
+        .invoice-header {
+            text-align: center;
+        }
+
+        .invoice-header h3 {
+            color: #111827;
+            margin: 0 0 5px 0;
+        }
+
+        .invoice-header p {
+            font-size: 0.85rem;
+            color: #4b5563;
+            margin: 2px 0;
+        }
+
+        .invoice-details {
+            margin: 15px 0;
+            font-size: 0.95rem;
+        }
+
+        .invoice-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .invoice-table th, .invoice-table td {
+            padding: 8px 4px;
+            border-bottom: 1px dashed #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .totals-section {
+            margin-top: 20px;
+            max-width: 250px;
+            margin-left: auto;
+        }
+
+        .total-row-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            font-size: 0.9rem;
+        }
+
+        .grand-total-row {
+            font-size: 1.15rem;
+            color: #b91c1c;
+            background-color: #fef2f2;
+            padding: 6px 4px;
+            border-radius: 4px;
+        }
+
+        .invoice-footer {
+            text-align: center;
+            margin-top: 40px;
+            font-style: italic;
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+
+        /* ==========================================
+           2. PRINT MANAGEMENT QUERY 
+           ========================================== */
+        /* ==========================================
+           🚨 PERFECT 1-PAGE PRINT UTILITY FIX (NO CUTTING)
+           ========================================== */
+        @media print {
+            /* 1. Form aur baaki buttons ko hide karein */
+            body * { 
+                visibility: hidden; 
+            }
+            .billing-form-box, .section-title, .btn-print, .hide-on-print {
+                display: none !important;
+            }
+            
+            /* 2. Sirf Invoice section ko visible karein */
+            #printSection, #printSection * { 
+                visibility: visible; 
+            }
+            
+            /* 3. Invoice Box ko perfectly A4 / Paper size me fit karein */
+            #printSection {
+                position: absolute; 
+                left: 0; 
+                top: 0; 
+                width: 100% !important; /* Pure page ki width lega */
+                max-width: 100% !important;
+                box-sizing: border-box !important; /* Width + Padding ko andar stretch hone se rokega */
+                border: 1px solid #000 !important; 
+                padding: 15px !important; 
+                margin: 0 !important; 
+                background: #fff !important; 
+                page-break-inside: avoid;
+            }
+
+            /* 4. Table aur Total items ko right side se katne se rokne ke liye text wrapping */
+            .invoice-table {
+                width: 100% !important;
+                table-layout: fixed; /* Columns ko apni limit se baahar jaane se rokega */
+            }
+
+            .totals-section {
+                width: 220px !important; /* Totals ke box ki size fix ki taaki right boundary touch na ho */
+                margin-left: auto !important; /* Right side me aligned rahega par margin se pehle */
+                padding-right: 5px !important;
+            }
+
+            /* 5. Browser ka layout print size default set karne ke liye */
+            @page { 
+                size: auto; 
+                margin: 10mm 15mm 10mm 15mm; /* Left-Right me kafi space dega */
+            }
+        }

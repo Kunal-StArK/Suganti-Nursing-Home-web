@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (emergencyDiv) {
         emergencyDiv.style.cursor = "pointer";
         emergencyDiv.addEventListener('click', () => {
-            alert("🚨 Direct Dialing Emergency Helpline: +91 12345-67890. Ambulances are on standby!");
+            alert("🚨 Direct Dialing Emergency Helpline: 108. Ambulances are on standby!");
         });
     }
 
@@ -117,7 +117,7 @@ function handleFormSubmit(event) {
         `👤 Patient Name  : ${name}\n` +
         `🏥 Department    : ${dept}\n` +
         `📅 Date of Visit : ${formattedDate}\n\n` +
-        `👉 Please keep this token screen ready at the reception counter.`
+        `👉 Please keep this token screen-shot ready at the reception counter.`
     );
     
     closeModal();

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+    {% block content %}
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+        <section id="home-page">
+            <div class="hero-section">
+                <h1>Your Health Is Our Top Priority</h1>
+                <p>Providing world-class medical services with expert doctors and advanced technology 24/7.</p>
+                <button class="btn" onclick="bookAppointment()">Book Appointment</button>
+            </div>
+
+            <div class="services-container">
+                <h2 class="section-title">Our Medical Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Cardiology</h3>
+                        <p>Advanced heart care, diagnostics, and treatment by top specialists.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Pediatrics</h3>
+                        <p>Specialized medical care for infants, children, and adolescents.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Emergency Care</h3>
+                        <p>24/7 trauma and emergency response services with fully equipped ICUs.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    {% endblock %}

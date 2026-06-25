@@ -1,0 +1,31 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suganti Nursing Home</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <!-- HEADER SECTION -->
+    <header class="hospital-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="{% url 'home' %}" class="logo-link">
+                    <h2>🏥 Suganti Nursing <span>Home</span></h2>
+                </a>    
+            </div>
+            <nav class="navbar">
+                <a href="{% url 'home' %}" class="nav-link active">Home</a>
+                <a href="{% url 'about' %}" class="nav-link">About Us</a>
+                <a href="{% url 'blog' %}" class="nav-link">Blog</a>
+            </nav>
+            <div class="emergency-contact">
+                <span>Emergency Dial: <strong>108</strong></span>
+            </div>
+        </div>
+    </header>

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+    {% block content %}
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+        <section id="blog-page">
+            <h2 class="section-title">Health & Wellness Blog</h2>
+            <div class="blog-grid">
+                <article class="blog-card" onclick="viewPost('Heart Health Tips')">
+                    <h3>5 Tips to Maintain a Healthy Heart</h3>
+                    <p class="blog-date">Published on: June 20, 2026</p>
+                    <p>Discover everyday habits, from diet changes to exercise routines, that can significantly improve your cardiovascular health...</p>
+                    <span class="read-more">Read More →</span>
+                </article>
+
+                <article class="blog-card" onclick="viewPost('Regular Checkups')">
+                    <h3>Understanding the Importance of Regular Checkups</h3>
+                    <p class="blog-date">Published on: June 15, 2026</p>
+                    <p>Early detection saves lives. Learn why annual health screening is crucial for individuals of all age groups...</p>
+                    <span class="read-more">Read More →</span>
+                </article>
+
+                <article class="blog-card" onclick="viewPost('Immunity Nutrition')">
+                    <h3>Nutrition Guide: Eating for a Stronger Immune System</h3>
+                    <p class="blog-date">Published on: May 28, 2026</p>
+                    <p>Fuel your body with the right vitamins and minerals. Here is a complete guide on superfoods that boost your immunity...</p>
+                    <span class="read-more">Read More →</span>
+                </article>
+            </div>
+        </section>
+    </main>
+
+  {% endblock %}

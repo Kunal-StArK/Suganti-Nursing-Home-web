@@ -1,0 +1,259 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f7f9fc;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+.hospital-header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h2 {
+    color: #0056b3;
+}
+
+.logo span {
+    color: #28a745;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    margin: 0 15px;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+
+.navbar a:hover, .navbar a.active {
+    color: #0056b3;
+    border-bottom: 2px solid #0056b3;
+}
+
+.emergency-contact {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+/* Main Content Layout */
+.main-content {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Home / Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 86, 179, 0.6)), url('https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=1200') no-repeat center center/cover;
+    color: white;
+    padding: 80px 40px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+.btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+.section-title {
+    text-align: center;
+    color: #0056b3;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.services-grid, .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.service-card, .blog-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-top: 4px solid #0056b3;
+}
+
+/* About Us Layout */
+.about-content {
+    background-color: white;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    line-height: 1.7;
+}
+
+.about-content h3 {
+    color: #0056b3;
+    margin: 20px 0 10px 0;
+}
+
+.about-content ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+/* Blog Layout */
+.blog-card {
+    border-top: 4px solid #28a745;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.blog-date {
+    font-size: 0.85rem;
+    color: #777;
+    margin: 5px 0 15px 0;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 15px;
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Footer Styling */
+.hospital-footer {
+    background-color: #1a252f;
+    color: #ecf0f1;
+    padding: 30px 20px 15px 20px;
+    margin-top: 40px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #34495e;
+}
+
+.footer-links a {
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #28a745;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 15px;
+    font-size: 0.9rem;
+    color: #bdc3c7;
+}
+
+/* Responsive Grid for Mobile Devices */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* Teeno blocks ko barabar doori par rakhega */
+    align-items: center;            /* Vertically sabhi ko center alignment dega */
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #34495e;
+}
+}
+
+/* Updated Footer Map Layout */
+.footer-map {
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    max-width: 350px; /* Center me map thoda bada bhi accha dikhega */
+    width: 100%;
+    margin: 0 auto;   /* Mobile view par alignment auto center rakhne ke liye */
+}
+
+.footer-map iframe {
+    display: block;
+}
+
+/* Logo Link Styling */
+.logo-link {
+    text-decoration: none; /* Underline hatane ke liye */
+    display: inline-block;
+}
+
+.logo-link:hover {
+    opacity: 0.9; /* Click karte waqt halka sa effect dene ke liye */
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-map {
+        max-width: 100%; /* Mobile par full width screen cover karega */
+    }
+}

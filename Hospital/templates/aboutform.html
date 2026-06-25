@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+    {% block content %}
+
+    <!-- aboutform-->
+    <main class="main-content">
+        <section id="about-page">
+            <h2 class="section-title">User form</h2>
+            <div class="about-content">
+                <div class="row">
+                    <div class="col-12">
+                        <form method="get">
+                            <div>
+                                <label for=""> Value 1 </label>
+                                <input type="text" name="num1" class="form-control"/>
+                            </div>
+                            <div>
+                                <label for=""> Value 2 </label>
+                                <input type="text" name="num2" class="form-control"/>
+                            </div>
+                            <div class="pt-4">
+                                <button type="submit" class="btn btn-primary">Sum</button>
+                            </div>
+                            output
+                            <input type="text" value="{{ output }}"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    {% endblock %}

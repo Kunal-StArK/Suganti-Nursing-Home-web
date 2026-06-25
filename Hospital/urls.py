@@ -21,6 +21,7 @@ from Hospital import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.homePage, name='home'),
-    path('about',views.aboutPage, name='about'),
-    path('blog',views.blogPage, name='blog'),
+    path('about/',views.aboutPage, name='about'),
+    path('blog/',views.blogPage, name='blog'),
+    path('aboutform/',views.aboutcopyPage, name='aboutform'),
 ]

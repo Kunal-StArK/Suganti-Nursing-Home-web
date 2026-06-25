@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
 def homePage(request):
@@ -10,20 +10,31 @@ def aboutPage(request):
 def blogPage(request):
     return render(request,"blog.html")
 
+def billingPage(request):
+    return render(request,"billing.html")
+
 
 
 
 
 def aboutcopyPage(request):
     sum=0
-    # if val1 is not None and val2 is not None and val1 != "" and val2 != "":
+    data ={}
     try:
-            # n1=int(request.GET['num1'])
-            # n2=int(request.GET['num2'])
-            val1=int(request.GET.get('num1'))
-            val2=int(request.GET.get('num2'))
-            sum = val1 + val2  # Dono numbers hain toh plus kar do
-    except ValueError:
-            sum = "Enter Number only" # Agar kisi ne text daal diya toh
+        if request.method=="POST":
+        # n1=int(request.GET['num1'])
+        # n2=int(request.GET['num2'])
+            n1=int(request.POST.get('num1'))
+            n2=int(request.POST.get('num2'))
+            sum = n1 + n2  # Dono numbers hain toh plus kar do
+            data={
+                 'n1' : n1,
+                 'n2' : n2,
+                 'output' : sum
+            }
 
-    return render(request,"aboutform.html",{'output' : sum})
+            return HttpResponseRedirect('/about/')
+    except :
+            pass # Agar kisi ne text daal diya toh
+
+    return render(request,"aboutform.html",data)

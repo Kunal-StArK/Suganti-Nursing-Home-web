@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+
+    {% block content %}
+
+    <h2 class="section-title">Patient Billing System</h2>
+    
+    <div class="billing-container">
+        <div class="billing-form-box">
+            <h3>📋 Generate New Invoice</h3>
+            <form id="billingCalculatorForm">
+                <div class="form-group">
+                    <label>Patient Full Name:</label>
+                    <input type="text" id="billPatientName" placeholder="Enter patient name...">
+                </div>
+
+                <div class="form-group">
+                    <label>Doctor/Consultant Name:</label>
+                    <input type="text" id="billDoctorName" placeholder="Dr. Sharma, etc...">
+                </div>
+
+                <div class="form-group">
+                    <label>Consultation Fee (₹):</label>
+                    <input type="number" id="feeConsultation" value="500" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Room Charges / ICU (₹):</label>
+                    <input type="number" id="feeRoom" value="0" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Pharmacy / Medicine Charges (₹):</label>
+                    <input type="number" id="feeMedicine" value="0" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Lab Test / Radiology Charges (₹):</label>
+                    <input type="number" id="feeLab" value="0" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Discount (%):</label>
+                    <input type="number" id="feeDiscount" value="0" min="0" max="100">
+                </div>
+
+                <button type="button" class="btn-print" id="printBtn">Print & Save Invoice</button>
+            </form>
+        </div>
+
+        <div class="invoice-preview" id="printSection">
+            <div class="invoice-header">
+                <h3>🏥 Suganti Nursing Receipt</h3>
+                <p>Invoice No: <span id="receiptInvoiceNo">LC-INV-XXXXX</span></p>
+                <p>Date: <span id="receiptDate">--/--/----</span></p>
+            </div>
+            <hr style="border: 1px dashed #ddd; margin: 15px 0;">
+            
+            <div class="invoice-details">
+                <p><strong>Patient:</strong> <span id="lblPatientName">-------</span></p>
+                <p><strong>Consultant:</strong> <span id="lblDoctorName">-------</span></p>
+            </div>
+
+            <table class="invoice-table">
+                <thead>
+                    <tr>
+                        <th style="text-align: left;">Description</th>
+                        <th style="text-align: right;">Amount (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Consultation Fee</td>
+                        <td id="outConsultation" style="text-align: right;">500.00</td>
+                    </tr>
+                    <tr>
+                        <td>Room/Ward Charges</td>
+                        <td id="outRoom" style="text-align: right;">0.00</td>
+                    </tr>
+                    <tr>
+                        <td>Pharmacy Medicines</td>
+                        <td id="outMedicine" style="text-align: right;">0.00</td>
+                    </tr>
+                    <tr>
+                        <td>Lab Tests</td>
+                        <td id="outLab" style="text-align: right;">0.00</td>
+                    </tr>
+                    <tr style="color: #dc3545;">
+                        <td>Discount Applied</td>
+                        <td id="outDiscount" style="text-align: right;">-0.00</td>
+                    </tr>
+                    <tr class="grand-total-row">
+                        <td><strong>Grand Total:</strong></td>
+                        <td id="outTotal" style="text-align: right;"><strong>₹500.00</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="text-align: center; margin-top: 30px; font-style: italic; color: #777; font-size: 0.9rem;">
+                <p>Thank you! Wish you a speedy recovery.</p>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

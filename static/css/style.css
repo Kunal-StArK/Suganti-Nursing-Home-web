@@ -257,3 +257,7 @@ body {
         max-width: 100%; /* Mobile par full width screen cover karega */
     }
 }
+.footer-links h4{
+    text-align: center;
+    width: fit-content;
+}

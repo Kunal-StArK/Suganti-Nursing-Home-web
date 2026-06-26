@@ -28,5 +28,5 @@ urlpatterns = [
     path('medibill/',views.medibillPage, name='medibill'),
     path('calculator/',views.calculatorPage),
     path('evenodd/',views.evenoddPage),
-    path('marksheet/',views.markssheetPage),
+    path('marksheet/',views.marksheetPage),
 ]

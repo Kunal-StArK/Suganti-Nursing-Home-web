@@ -26,5 +26,6 @@ urlpatterns = [
     path('aboutform/',views.aboutcopyPage, name='aboutform'),
     path('billing/',views.billingPage, name='billing'),
     path('medibill/',views.medibillPage, name='medibill'),
-    path('calculator/',views.calculatorPage, name='calculator'),
+    path('calculator/',views.calculatorPage),
+    path('evenodd/',views.evenoddPage),
 ]

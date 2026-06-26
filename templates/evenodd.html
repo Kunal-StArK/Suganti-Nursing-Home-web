@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+    {% block content %}
+
+    
+    <!-- aboutform-->
+    <main class="main-content">
+        <section id="about-page">
+            <h2 class="section-title">Find EVEN ODD</h2>
+            <div class="about-content">
+                <div class="row">
+                    <div class="col-12">
+                        <form method="post">
+                            {% csrf_token %}
+                            
+                                <label>Value </label>
+                                <input type="text" name ="num1" placeholder="Enter a int value " style="margin-left: 15px;"/>
+                            
+                            
+                                <button type="submit" style="margin-left: 60px; background-color: aqua;"> Even or Odd </button>
+                             
+                            
+                                 <label >Answer</label>
+                                <input type="text" value="{{c}}"/>
+                                                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    {% endblock %}

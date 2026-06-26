@@ -68,6 +68,8 @@ def aboutcopyPage(request):
     return render(request,"aboutform.html",data)
 
 
+
+# ye calculator ka views ha
 def calculatorPage(request):
     c=''
     try:
@@ -87,3 +89,18 @@ def calculatorPage(request):
     except:
         c="invalid opr................"
     return render(request,"calculator.html",{'c':c})
+
+
+# ye even odd ka views hai
+def evenoddPage(request):
+    try:
+        c=''
+        if request.method == "POST":
+            num = eval(request.POST.get('num1'))
+            if (num%2==0):
+                c="number is even"
+            else:
+                c="number is odd"   
+    except:
+        pass
+    return render(request,"evenodd.html",{'c':c})

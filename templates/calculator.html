@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+    {% block content %}
+
+    
+    <!-- aboutform-->
+    <main class="main-content">
+        <section id="about-page">
+            <h2 class="section-title">Calculator</h2>
+            <div class="about-content">
+                <div class="row">
+                    <div class="col-12">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div>
+                                <label>Value 1</label>
+                                <input type="text" name ="num1" placeholder="Enter value 1"/>
+                            </div>
+                            <div>
+                                 <label>select oprator</label>
+                                <select name="opr">
+                                    <option value="+">+</option>
+                                    <option value="-">-</option>
+                                    <option value="*">*</option>
+                                    <option value="/">/</option>                                
+                                </select>
+                            </div>
+                            <div>     
+                                <label>Value 2</label>
+                                <input type="text" name = "num2" placeholder="Enter value 2" /> 
+                            </div>
+                            <div>
+                                <button type="submit" style="margin-left: 60px; background-color: aqua;"> Calculator </button>
+                            </div> 
+                            <div>
+                                 <label>Answer</label>
+                                <input type="text" value="{{c}}"/>
+                            </div>                                
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    {% endblock %}

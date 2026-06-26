@@ -12,14 +12,15 @@
                     <div class="col-12">
                         <form method="post">
                             {% csrf_token %}
-                            <div>
+                            {{form}}
+                            {% comment %} <div>
                                 <label for=""> Value 1 </label>
                                 <input type="text" name="num1" value="{{n1}}" class="form-control" placeholder="Enter number"/>
                             </div>
                             <div>
                                 <label for=""> Value 2 </label>
                                 <input type="text" name="num2" value="{{n2}}" class="form-control" placeholder="Enter number"/>
-                            </div>
+                            </div> {% endcomment %}
                             <div class="pt-4">
                                 <button type="submit" class="btn btn-primary">Sum</button>
                             </div>

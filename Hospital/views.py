@@ -94,13 +94,46 @@ def calculatorPage(request):
 # ye even odd ka views hai
 def evenoddPage(request):
     try:
-        c=''
+        ans=''
         if request.method == "POST":
             num = eval(request.POST.get('num1'))
             if (num%2==0):
-                c="number is even"
+                ans="number is even"
             else:
-                c="number is odd"   
+                ans="number is odd"   
     except:
         pass
-    return render(request,"evenodd.html",{'c':c})
+    return render(request,"evenodd.html",{'c':ans})
+
+
+# ye markssheet ka views hai
+def markssheetPage(request):
+    data = {}
+    try:
+        if request.method=="POST":
+            sub1=eval(request.POST.get('sub1'))
+            sub2=eval(request.POST.get('sub2'))
+            sub3=eval(request.POST.get('sub3'))
+            sub4=eval(request.POST.get('sub4'))
+            sub5=eval(request.POST.get('sub5'))
+
+            t = sub1+sub2+sub3+sub4+sub5
+            p = t/5
+
+            if p >= 60:
+                d="First division"
+            elif p>=50:
+                d="Second division"
+            elif p>= 40:
+                d="Third division"
+            else:
+                d="Fail"
+
+            data={
+                'total' : t,
+                'percent' : p,
+                'division': d
+            }
+    except:
+        pass
+    return render(request,"marksheet.html",data)

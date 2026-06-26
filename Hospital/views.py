@@ -1,11 +1,13 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 def homePage(request):
     return render(request,'index.html')
 
 def aboutPage(request):
-    return render(request,"about.html")
+    if request.method=="GET":
+        output=request.GET.get('output')
+    return render(request,"about.html",{'output' : output})
 
 def blogPage(request):
     return render(request,"blog.html")
@@ -34,7 +36,8 @@ def aboutcopyPage(request):
                  'output' : sum
             }
 
-            return HttpResponseRedirect('/about/')
+            url = "/about/?output={}".format(sum)
+            return redirect(url)
     except :
             pass # Agar kisi ne text daal diya toh
 

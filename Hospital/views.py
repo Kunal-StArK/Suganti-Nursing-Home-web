@@ -107,7 +107,7 @@ def evenoddPage(request):
 
 
 # ye markssheet ka views hai
-def markssheetPage(request):
+def marksheetPage(request):
     data = {}
     try:
         if request.method=="POST":

@@ -253,9 +253,7 @@ body {
         flex-direction: column;
         text-align: center;
     }
-    .footer-map {
-        max-width: 100%; /* Mobile par full width screen cover karega */
-    }
+    
 }
 .footer-links h4{
     text-align: center;
@@ -273,4 +271,8 @@ marquee{
     display: flex;
     gap: 10px;
     margin: 20px 0 35px;
+}
+
+.footer-map{
+    margin-top: 20px;
 }

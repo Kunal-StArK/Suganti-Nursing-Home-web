@@ -8,7 +8,7 @@ def homePage(request):
     
     newsData = News.objects.all()     # ye news app se aayega data 
 
-    ServiceData= Service.objects.all().order_by('Service_title')
+    ServiceData= Service.objects.all().order_by('Service_title')[:3]
     if request.method == "GET":
         st = request.GET.get('servicesname')
         if st!=None:

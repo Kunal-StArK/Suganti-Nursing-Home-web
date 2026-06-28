@@ -1,4 +1,5 @@
-document.getElementById('imageUpload').addEventListener('change', function(event) {
+// Live Image Preview Logic
+    document.getElementById('imageUpload').addEventListener('change', function(event) {
         const file = event.target.files[0];
         const previewContainer = document.getElementById('imagePreviewContainer');
         const previewImage = document.getElementById('imagePreview');
@@ -32,30 +33,30 @@ document.getElementById('imageUpload').addEventListener('change', function(event
         let isValid = true;
 
         // Name Validation
-        // if (name === '') {
-        //     showError('nameGroup');
-        //     isValid = false;
-        // } else {
-        //     hideError('nameGroup');
-        // }
+        if (name === '') {
+            showError('nameGroup');
+            isValid = false;
+        } else {
+            hideError('nameGroup');
+        }
 
         // Email Validation
-        // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        // if (!emailRegex.test(email)) {
-        //     showError('emailGroup');
-        //     isValid = false;
-        // } else {
-        //     hideError('emailGroup');
-        // }
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            showError('emailGroup');
+            isValid = false;
+        } else {
+            hideError('emailGroup');
+        }
 
         // Phone Validation (10 digits)
-        // const phoneRegex = /^[0-9]{10}$/;
-        // if (!phoneRegex.test(phone)) {
-        //     showError('phoneGroup');
-        //     isValid = false;
-        // } else {
-        //     hideError('phoneGroup');
-        // }
+        const phoneRegex = /^[0-9]{10}$/;
+        if (!phoneRegex.test(phone)) {
+            showError('phoneGroup');
+            isValid = false;
+        } else {
+            hideError('phoneGroup');
+        }
 
         // Website Validation (Optional)
         if (website !== '') {
@@ -71,12 +72,12 @@ document.getElementById('imageUpload').addEventListener('change', function(event
         }
 
         // Message Validation
-        // if (message === '') {
-        //     showError('msgGroup');
-        //     isValid = false;
-        // } else {
-        //     hideError('msgGroup');
-        // }
+        if (message === '') {
+            showError('msgGroup');
+            isValid = false;
+        } else {
+            hideError('msgGroup');
+        }
 
         // Actions if form is valid
         if (isValid) {

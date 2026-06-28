@@ -8,17 +8,17 @@
     
     <h2>Contact Details</h2>
     
-    <form id="contactForm" novalidate method="post" action="" >
+    <form id="contactForm" method="post" action="{% url 'contact' %}" >
         {% csrf_token %}
         <div class="form-row">
             <div class="form-group" id="nameGroup">
                 <label for="name">Name*</label>
-                <input type="text" id="name" placeholder="Full name" name="name">
+                <input type="text" id="name" placeholder="Full name" name="name" required>
                 <div class="error-message">Please enter your name.</div>
             </div>
             <div class="form-group" id="emailGroup">
                 <label for="email">Email*</label>
-                <input type="email" id="email" placeholder="name@email.com" name="email">
+                <input type="email" id="email" placeholder="name@email.com" name="email" required>
                 <div class="error-message">Please enter a valid email.</div>
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="form-row">
             <div class="form-group" id="phoneGroup">
                 <label for="phone">Phone*</label>
-                <input type="tel" id="phone" placeholder="10-digit number" name="phone">
+                <input type="tel" id="phone" placeholder="10-digit number" name="phone" required>
                 <div class="error-message">Please enter a 10-digit number.</div>
             </div>
             <div class="form-group" id="webGroup">
@@ -57,7 +57,7 @@
 
         <div class="form-group" id="msgGroup">
             <label for="message">Message*</label>
-            <textarea id="message" placeholder="Type your message here..." name="message"></textarea>
+            <textarea id="message" placeholder="Type your message here..." name="message" required></textarea>
             <div class="error-message">Please enter your message.</div>
         </div>
 

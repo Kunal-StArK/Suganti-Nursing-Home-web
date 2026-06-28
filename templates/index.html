@@ -3,7 +3,7 @@
     {% block content %}
 <marquee onmouseover="stop()" onmouseout="start()">
     {% for news in newsData %}
-    <a href="/newsDetail/{{news.id}}">{{news.news_title}}</a>  &nbsp;&nbsp;&nbsp;
+    <a href="/newsDetail/{{news.news_slug}}">{{news.news_title}}</a>  &nbsp;&nbsp;&nbsp;
     {% endfor %}
 </marquee>
     <!-- MAIN CONTENT AREA -->
@@ -17,9 +17,14 @@
 
             <div class="services-container">
                 <h2 class="section-title">Our Medical Services</h2>
+                
+                <form method="get" id="searchbox">
+                    <input type="text" name="servicesname" value="" />
+                    <input type="submit" value="Search">
+                </form>
                 <div class="services-grid">
 
-                    {% for n in ServerData %}
+                    {% for n in ServiceData %}
 
                     <div class="service-card">
                         <h3>{{n.Service_title}}</h3>

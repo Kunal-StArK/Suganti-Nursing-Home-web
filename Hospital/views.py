@@ -8,16 +8,20 @@ def homePage(request):
     
     newsData = News.objects.all()     # ye news app se aayega data 
 
-    ServerData= Service.objects.all().order_by('Service_title')[:5]
+    ServiceData= Service.objects.all().order_by('Service_title')
+    if request.method == "GET":
+        st = request.GET.get('servicesname')
+        if st!=None:
+            ServiceData= Service.objects.filter(Service_title__icontains=st)
     data={
         'newsData' : newsData,            # ye news data ko le jayega data name ke dic se
-        'ServerData' : ServerData
+        'ServiceData' : ServiceData
     }
     return render(request,'index.html',data)
 
 
-def newsDetailsPage(request,newsId):
-    newsDetails=News.objects.get(id=newsId)
+def newsDetailsPage(request,slug):
+    newsDetails=News.objects.get(news_slug=slug)
     data={
         'newsDetails':newsDetails
     }

@@ -263,7 +263,14 @@ body {
 }
 
 marquee{
-    background-color: red;
+    background-color: pink;
     position: relative;
     z-index: 999;
+}
+
+#searchbox{
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    margin: 20px 0 35px;
 }

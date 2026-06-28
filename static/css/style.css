@@ -276,3 +276,10 @@ marquee{
 .footer-map{
     margin-top: 20px;
 }
+
+.loc{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

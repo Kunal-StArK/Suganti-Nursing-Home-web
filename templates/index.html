@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
     {% block content %}
-
+<marquee onmouseover="stop()" onmouseout="start()">
+    {% for news in newsData %}
+    <a href="/newsDetail/{{news.id}}">{{news.news_title}}</a>  &nbsp;&nbsp;&nbsp;
+    {% endfor %}
+</marquee>
     <!-- MAIN CONTENT AREA -->
     <main class="main-content">
         <section id="home-page">
@@ -14,18 +18,24 @@
             <div class="services-container">
                 <h2 class="section-title">Our Medical Services</h2>
                 <div class="services-grid">
+
+                    {% for n in ServerData %}
+
                     <div class="service-card">
-                        <h3>Cardiology</h3>
-                        <p>Advanced heart care, diagnostics, and treatment by top specialists.</p>
+                        <h3>{{n.Service_title}}</h3>
+                        <p>{{n.Service_dec}}</p>
                     </div>
-                    <div class="service-card">
+                    
+                    {% endfor %}
+
+                    {% comment %} <div class="service-card">
                         <h3>Pediatrics</h3>
                         <p>Specialized medical care for infants, children, and adolescents.</p>
                     </div>
                     <div class="service-card">
                         <h3>Emergency Care</h3>
                         <p>24/7 trauma and emergency response services with fully equipped ICUs.</p>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
         </section>

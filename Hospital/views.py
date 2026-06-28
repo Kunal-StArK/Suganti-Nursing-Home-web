@@ -1,14 +1,34 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import UserForm
+from Service.models import Service
+from news.models import News
 
 def homePage(request):
-    return render(request,'index.html')
+    
+    newsData = News.objects.all()     # ye news app se aayega data 
+
+    ServerData= Service.objects.all().order_by('Service_title')[:5]
+    data={
+        'newsData' : newsData,            # ye news data ko le jayega data name ke dic se
+        'ServerData' : ServerData
+    }
+    return render(request,'index.html',data)
+
+
+def newsDetailsPage(request,newsId):
+    newsDetails=News.objects.get(id=newsId)
+    data={
+        'newsDetails':newsDetails
+    }
+    return render(request,"newsDetails.html",data)
+
 
 def aboutPage(request):
     if request.method=="GET":
         output=request.GET.get('output')
     return render(request,"about.html",{'output' : output})
+
 
 def blogPage(request):
     return render(request,"blog.html")

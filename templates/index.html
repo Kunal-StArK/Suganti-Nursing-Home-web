@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
     {% block content %}
+    
 <marquee onmouseover="stop()" onmouseout="start()">
     {% for news in newsData %}
     <a href="/newsDetail/{{news.news_slug}}">{{news.news_title}}</a>  &nbsp;&nbsp;&nbsp;

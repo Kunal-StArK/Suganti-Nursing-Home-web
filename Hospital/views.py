@@ -3,19 +3,25 @@ from django.shortcuts import render, redirect
 from .forms import UserForm
 from Service.models import Service
 from news.models import News
+from django.core.paginator import Paginator
 
 def homePage(request):
     
     newsData = News.objects.all()     # ye news app se aayega data 
 
-    ServiceData= Service.objects.all().order_by('Service_title')[:3]
+    ServiceData= Service.objects.all().order_by('Service_title')
+
+    paginator = Paginator(ServiceData,2)
+    page_number = request.GET.get('page')
+    ServiceDatafinal = paginator.get_page(page_number)
+
     if request.method == "GET":
         st = request.GET.get('servicesname')
         if st!=None:
             ServiceData= Service.objects.filter(Service_title__icontains=st)
     data={
         'newsData' : newsData,            # ye news data ko le jayega data name ke dic se
-        'ServiceData' : ServiceData
+        'ServiceData' : ServiceDatafinal
     }
     return render(request,'index.html',data)
 
@@ -161,3 +167,8 @@ def marksheetPage(request):
     except:
         pass
     return render(request,"marksheet.html",data)
+
+
+# ye form ka views h
+def formPage(request):
+    return render(request,"form.html")

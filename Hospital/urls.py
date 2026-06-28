@@ -29,5 +29,6 @@ urlpatterns = [
     path('calculator/',views.calculatorPage),
     path('evenodd/',views.evenoddPage),
     path('marksheet/',views.marksheetPage),
-    path('newsDetail/<slug>',views.newsDetailsPage)
+    path('newsDetail/<slug>',views.newsDetailsPage),
+    path('form/',views.formPage, name='form')
 ]

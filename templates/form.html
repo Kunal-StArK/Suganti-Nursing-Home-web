@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+    {% block content %}
+
+
+<div class="form-container">
+    <div class="success-message" id="successMsg">Form submitted successfully!</div>
+    
+    <h2>Contact Details</h2>
+    
+    <form id="contactForm" novalidate>
+        <div class="form-row">
+            <div class="form-group" id="nameGroup">
+                <label for="name">Name*</label>
+                <input type="text" id="name" placeholder="Full name">
+                <div class="error-message">Please enter your name.</div>
+            </div>
+            <div class="form-group" id="emailGroup">
+                <label for="email">Email*</label>
+                <input type="email" id="email" placeholder="name@email.com">
+                <div class="error-message">Please enter a valid email.</div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group" id="phoneGroup">
+                <label for="phone">Phone*</label>
+                <input type="tel" id="phone" placeholder="10-digit number">
+                <div class="error-message">Please enter a 10-digit number.</div>
+            </div>
+            <div class="form-group" id="webGroup">
+                <label for="website">Website Name</label>
+                <input type="url" id="website" placeholder="https://example.com (Optional)">
+                <div class="error-message">Please enter a valid URL.</div>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="imageUpload">Upload Image <span style="font-weight: normal; font-size: 12px; color: #888;">(Optional)</span></label>
+                <div class="upload-box">
+                    <input type="file" id="imageUpload" accept="image/*">
+                </div>
+                <div class="preview-container" id="imagePreviewContainer">
+                    <img id="imagePreview" src="" alt="Preview">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="fileUpload">Attach File <span style="font-weight: normal; font-size: 12px; color: #888;">(Optional)</span></label>
+                <div class="upload-box">
+                    <input type="file" id="fileUpload" accept=".pdf,.doc,.docx,.txt,.zip">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group" id="msgGroup">
+            <label for="message">Message*</label>
+            <textarea id="message" placeholder="Type your message here..."></textarea>
+            <div class="error-message">Please enter your message.</div>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Form</button>
+    </form>
+</div>
+
+
+{% endblock %}

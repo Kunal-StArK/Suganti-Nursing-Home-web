@@ -4,6 +4,7 @@ from .forms import UserForm
 from Service.models import Service
 from news.models import News
 from django.core.paginator import Paginator
+from contactenquiry.models import contactEnquiry
 
 def homePage(request):
     
@@ -170,5 +171,13 @@ def marksheetPage(request):
 
 
 # ye form ka views h
-def formPage(request):
-    return render(request,"form.html")
+def contactPage(request):
+    if request.method == "POST":
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        phone=request.POST.get('phone')
+        website=request.POST.get('website')
+        message=request.POST.get('message')
+        data=contactEnquiry(name=name,email=email,phone=phone,website=website,message=message)
+        data.save()
+    return render(request,"contact.html")

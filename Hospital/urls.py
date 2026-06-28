@@ -30,5 +30,5 @@ urlpatterns = [
     path('evenodd/',views.evenoddPage),
     path('marksheet/',views.marksheetPage),
     path('newsDetail/<slug>',views.newsDetailsPage),
-    path('form/',views.formPage, name='form')
+    path('contact/',views.contactPage, name='contact')
 ]

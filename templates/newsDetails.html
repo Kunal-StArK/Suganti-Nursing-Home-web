@@ -6,13 +6,11 @@
     <main class="main-content">
         <section id="about-page">
             <h2 class="section-title">Details of the news </h2>
-
+            <div>
+                <img src="/media/{{newsDetails.news_image}}" alt="" width="200" style="text-align: center;"/>
+            </div>
             <h2 class="section-title">{{newsDetails.news_title}}</h2>
-
-            {{newsDetails.news_dec | safe }}
-            
-
-            
+            {{newsDetails.news_dec | safe }}            
         </section>
     </main>
 

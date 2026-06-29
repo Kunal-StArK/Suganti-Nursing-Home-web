@@ -126,3 +126,11 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = BASE_DIR/"media"
 MEDIA_URL = '/media/'
+
+
+EMAIL_HOST = 'smtp.gmail.com'             # e.g., 'smtp.gmail.com'
+EMAIL_PORT = 587                                  # 587 for TLS, 465 for SSL
+EMAIL_USE_TLS = True                              # Use Secure Connection via TLS
+#EMAIL_USE_SSL = False                             # Set to True if using port 465
+EMAIL_HOST_USER = 'otaswelifar@gmail.com'        # Account username
+EMAIL_HOST_PASSWORD = 'jdzr rhwu gxqx unkp'

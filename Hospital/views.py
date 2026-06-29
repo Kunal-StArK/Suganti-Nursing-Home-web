@@ -5,6 +5,8 @@ from Service.models import Service
 from news.models import News
 from django.core.paginator import Paginator
 from contactenquiry.models import contactEnquiry
+from django.core.mail import send_mail 
+from django.core.mail import EmailMultiAlternatives
 
 def homePage(request):
     
@@ -42,7 +44,24 @@ def aboutPage(request):
 
 
 def blogPage(request):
-    return render(request,"blog.html")
+    # send_mail(                          # this for without html tags
+    #     "Subject - Testing mail",
+    #     "This is the main containt of the mail ",
+    #     "otaswelifar@gmail.com",
+    #     ["starkkunu@gmail.com"],
+    #     fail_silently=False,
+    # )
+
+        subject = "hello"                 # this we can also use html tags 
+        from_email = "otaswelifar@gmail.com"
+        to = "starkkunu@gmail.com"
+        text_content = "<p><b>This</b> is an <i>important</i> <u>message.</u>"
+        html_content = "<p>This is an <strong>important</strong> message.</p>"
+        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+        msg.content_subtype = 'html'
+        msg.send()
+
+        return render(request,"blog.html")
 
 def billingPage(request):
     return render(request,"billing.html")
